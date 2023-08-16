@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="listener"
+            type="com.carry.slideconflict.MainUIListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,6 +21,7 @@
             android:layout_height="70dp"
             android:background="@color/teal_700"
             android:gravity="center"
+            android:onClick="@{listener::openReclaim}"
             android:text="@string/reclaim"
             android:textColor="@color/white"
             android:textSize="20sp"
