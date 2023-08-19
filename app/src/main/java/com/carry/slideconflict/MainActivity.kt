@@ -20,8 +20,13 @@ class MainActivity : AppCompatActivity(), MainUIListener {
     override fun openReclaim(view: View) {
        startActivity(Intent(this,ReclaimDemoActivity::class.java))
     }
+
+    override fun openNewUI(view: View) {
+        startActivity(Intent(this,NewUIActivity::class.java))
+    }
 }
 
 interface MainUIListener {
     fun openReclaim(view: View)
+    fun openNewUI(view: View)
 }

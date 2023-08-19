@@ -156,6 +156,83 @@ class ReclaimDemoActivity : AppCompatActivity() {
 
 感觉用着还不错这里记录下~
 
+# new UI
+
+横向一屏幕可见两个item按比例展示，主要就是布局参数的应用。
+
+```kotlin
+/**
+ * Create by SunnyDay /08/19 15:23:01
+ */
+data class NewUIItem(
+    val imageResId: Int,
+    val deviceWidth: Int? = null
+) : AdapterItem<NewUIViewHolder>() {
+    override val layoutId: Int = R.layout.item_new_ui
+    override fun onCreateViewHolder(view: View) = NewUIViewHolder(view)
+    override fun updateItemViews(viewHolder: NewUIViewHolder) {
+        viewHolder.binding.run {
+            // 控制布局宽度
+            root.layoutParams.run {
+                deviceWidth?.let {
+                    width = it
+                }
+            }
+            img.setImageResource(imageResId)
+        }
+    }
+}
+
+data class NewUIViewHolder(val view: View) : BaseViewHolder(view) {
+    val binding: ItemNewUiBinding by BindListItem(view)
+}
+```
+
+```kotlin
+class NewUIActivity : AppCompatActivity() {
+    private val binding: ActivityNewUiactivityBinding by BindActivity(R.layout.activity_new_uiactivity)
+    private val mAdapter = ItemsViewAdapter()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(binding.root)
+        // init rv
+        binding.rvList.run {
+            adapter = mAdapter
+            layoutManager = LinearLayoutManager(this@NewUIActivity,RecyclerView.HORIZONTAL,false)
+            addItemDecoration(
+                DividerItemDecoration(
+                    this@NewUIActivity,
+                    DividerItemDecoration.HORIZONTAL
+                ).apply {
+                    setDrawable(
+                        AppCompatResources.getDrawable(
+                            this@NewUIActivity,
+                            R.drawable.item_divider_horizontal
+                        )!!
+                    )
+                }
+            )
+        }
+
+        val imgList = arrayListOf(
+            R.drawable.img_1,
+            R.drawable.img_2,
+            R.drawable.img_3,
+            R.drawable.img_4,
+            R.drawable.img_5,
+        )
+        // 一个item 显示的宽度，这里取手机屏幕的80%
+        val  deviceWidth = resources.displayMetrics.widthPixels * 0.8
+        mAdapter.replaceItems(
+            imgList.map {
+                NewUIItem(it,deviceWidth.toInt())
+            }
+        )
+
+    }
+}
+```
+
 # rv嵌套滑动冲突
 
 一种解决方案
