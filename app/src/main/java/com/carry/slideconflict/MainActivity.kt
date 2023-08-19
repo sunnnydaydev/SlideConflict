@@ -24,9 +24,14 @@ class MainActivity : AppCompatActivity(), MainUIListener {
     override fun openNewUI(view: View) {
         startActivity(Intent(this,NewUIActivity::class.java))
     }
+
+    override fun openSlideConflict(view: View) {
+        startActivity(Intent(this,SlideConflictActivity::class.java))
+    }
 }
 
 interface MainUIListener {
     fun openReclaim(view: View)
     fun openNewUI(view: View)
+    fun openSlideConflict(view: View)
 }

@@ -15,6 +15,9 @@
         android:theme="@style/Theme.SlideConflict"
         tools:targetApi="31">
         <activity
+            android:name=".SlideConflictActivity"
+            android:exported="false" />
+        <activity
             android:name=".NewUIActivity"
             android:exported="false" />
         <activity
