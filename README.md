@@ -235,4 +235,8 @@ class NewUIActivity : AppCompatActivity() {
 
 # rv嵌套滑动冲突
 
-一种解决方案
+这里模拟下
+
+# The end
+
+[参考](/Kotlin序列化简单使用.md)
