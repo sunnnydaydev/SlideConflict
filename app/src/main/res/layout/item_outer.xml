@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="data"
+            type="com.carry.slideconflict.bean.Lyric" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -11,24 +13,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-<!--        <androidx.appcompat.widget.AppCompatImageView-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            android:id="@+id/img"-->
-<!--            android:layout_width="150dp"-->
-<!--            android:layout_height="150dp"-->
-<!--            android:gravity="center"-->
-<!--            android:src="@drawable/img_1"/>-->
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/subList"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:text="@{data.lyricTitle}"
+            android:gravity="center"
+            android:id="@+id/title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="10dp"
+            android:id="@+id/subList"
+            app:layout_constraintTop_toBottomOf="@+id/title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
+            android:layout_height="300dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
