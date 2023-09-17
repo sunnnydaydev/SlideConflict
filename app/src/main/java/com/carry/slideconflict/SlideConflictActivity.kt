@@ -3,13 +3,11 @@ package com.carry.slideconflict
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.carry.slideconflict.bean.LyricData
 import com.carry.slideconflict.databinding.ActivitySlideConflictBinding
 import com.carry.slideconflict.items.OuterItem
-import com.carry.slideconflict.items.SimpleTextItem
 import com.carry.slideconflict.utils.BindActivity
 import com.carry.slideconflict.utils.KtsClient
 import com.fueled.reclaim.ItemsViewAdapter
