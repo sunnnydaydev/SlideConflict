@@ -14,7 +14,7 @@ import com.fueled.reclaim.ItemsViewAdapter
 
 class SlideConflictActivity : AppCompatActivity() {
     companion object {
-        val json = "{\n" +
+        private const val json = "{\n" +
                 "  \"lyricList\": [\n" +
                 "    {\n" +
                 "      \"lyricTitle\": \"烟花易冷Live片段\",\n" +
@@ -75,7 +75,6 @@ class SlideConflictActivity : AppCompatActivity() {
                     binding.root.context,
                     DividerItemDecoration.VERTICAL
                 ).apply {
-                    // 不使用自定的drawable时默认分割线是一条灰色的线
                     setDrawable(
                         AppCompatResources.getDrawable(
                             binding.root.context,

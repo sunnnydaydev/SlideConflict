@@ -1,5 +1,6 @@
 package com.carry.slideconflict.items
 
+import android.view.MotionEvent
 import android.view.View
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -46,6 +47,18 @@ data class OuterViewHolder(val view: View) : BaseViewHolder(view) {
                     DividerItemDecoration.VERTICAL
                 )
             )
+            this.setOnTouchListener { v, event ->
+                view.parent.requestDisallowInterceptTouchEvent(true)
+                when(event.action) {
+                    MotionEvent.ACTION_UP ->{
+                        view.parent.requestDisallowInterceptTouchEvent(false)
+                        false
+
+                    }
+                    else ->
+                        false
+                }
+            }
         }
     }
 }

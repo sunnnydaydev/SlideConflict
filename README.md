@@ -237,6 +237,12 @@ class NewUIActivity : AppCompatActivity() {
 
 这里模拟下
 
+```kotlin
+
+```
+
 # The end
 
 [参考](/Kotlin序列化简单使用.md)
+
+[参考](https://mp.weixin.qq.com/s/SC5oqQ-F3-0MwJHH7vo4mQ)
