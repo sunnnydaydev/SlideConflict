@@ -47,6 +47,7 @@ data class OuterViewHolder(val view: View) : BaseViewHolder(view) {
                     DividerItemDecoration.VERTICAL
                 )
             )
+            // todo 搞了个临时解决方案。 与子view交互时不让父recyclerview拦截事件
             this.setOnTouchListener { v, event ->
                 view.parent.requestDisallowInterceptTouchEvent(true)
                 when(event.action) {

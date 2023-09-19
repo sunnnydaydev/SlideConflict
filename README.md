@@ -235,10 +235,23 @@ class NewUIActivity : AppCompatActivity() {
 
 # rv嵌套滑动冲突
 
-这里模拟下
+搞了个临时解决方案。 与子view交互时不让父recyclerview拦截事件。
+
+后续吧事件分发机制再研究一遍再来回顾下这里。
 
 ```kotlin
+            subRv.setOnTouchListener { v, event ->
+                view.parent.requestDisallowInterceptTouchEvent(true)
+                when(event.action) {
+                    MotionEvent.ACTION_UP ->{
+                        view.parent.requestDisallowInterceptTouchEvent(false)
+                        false
 
+                    }
+                    else ->
+                        false
+                }
+            }
 ```
 
 # The end
@@ -246,3 +259,5 @@ class NewUIActivity : AppCompatActivity() {
 [参考](/Kotlin序列化简单使用.md)
 
 [参考](https://mp.weixin.qq.com/s/SC5oqQ-F3-0MwJHH7vo4mQ)
+
+[参考](https://mp.weixin.qq.com/s/B8IqKICTqxZiB7O1A_zpnQ)
